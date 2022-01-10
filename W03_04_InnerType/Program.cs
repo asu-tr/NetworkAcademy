@@ -119,7 +119,10 @@ namespace W03_04_InnerType
                         break;
 
                     case 4:
+                        break;
+
                     default:
+                        Console.WriteLine("Invalid input.");
                         break;
                 }
 
