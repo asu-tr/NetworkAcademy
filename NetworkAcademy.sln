@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W02_10_Classes_Example4", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W02_11_Encapsulation", "W02_11_Encapsulation\W02_11_Encapsulation.csproj", "{22761E9C-C550-4EC3-ADCA-BA3D1E0938D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W03_07_VirtualAccessModifier", "W03_07_VirtualAccessModifier\W03_07_VirtualAccessModifier.csproj", "{C7C913C6-B37D-4A4D-B9C8-983B39A878E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +191,10 @@ Global
 		{22761E9C-C550-4EC3-ADCA-BA3D1E0938D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22761E9C-C550-4EC3-ADCA-BA3D1E0938D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22761E9C-C550-4EC3-ADCA-BA3D1E0938D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C913C6-B37D-4A4D-B9C8-983B39A878E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C913C6-B37D-4A4D-B9C8-983B39A878E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C913C6-B37D-4A4D-B9C8-983B39A878E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C913C6-B37D-4A4D-B9C8-983B39A878E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,6 +229,7 @@ Global
 		{EF62A8F7-BF0A-49B1-A305-EF3ED000C88E} = {A2275FD7-B6AD-4AA2-8DC2-2320A8ED0BFC}
 		{8F3DC04A-913A-4D87-AD80-90FA5CEA830D} = {A2275FD7-B6AD-4AA2-8DC2-2320A8ED0BFC}
 		{22761E9C-C550-4EC3-ADCA-BA3D1E0938D3} = {A2275FD7-B6AD-4AA2-8DC2-2320A8ED0BFC}
+		{C7C913C6-B37D-4A4D-B9C8-983B39A878E4} = {699D7192-7457-47C5-9CF9-63CD5DDF8C78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CD794D6-4F48-40DA-A14C-40A1C335F885}
