@@ -83,6 +83,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W03_13_Interface", "W03_13_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W03_14_Interface_Example", "W03_14_Interface_Example\W03_14_Interface_Example.csproj", "{2CC783FA-4BC5-466D-A70F-B985F818B0C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W03_15_PartialClass", "W03_15_PartialClass\W03_15_PartialClass.csproj", "{972925DF-9787-493A-9F97-4A39BB48E3AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,10 @@ Global
 		{2CC783FA-4BC5-466D-A70F-B985F818B0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC783FA-4BC5-466D-A70F-B985F818B0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC783FA-4BC5-466D-A70F-B985F818B0C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972925DF-9787-493A-9F97-4A39BB48E3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972925DF-9787-493A-9F97-4A39BB48E3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972925DF-9787-493A-9F97-4A39BB48E3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972925DF-9787-493A-9F97-4A39BB48E3AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,6 +285,7 @@ Global
 		{3C098A19-94D0-4634-9A23-481BADDFECE9} = {699D7192-7457-47C5-9CF9-63CD5DDF8C78}
 		{F616B6DB-8D75-4F62-B2E3-C4D71406EEE3} = {699D7192-7457-47C5-9CF9-63CD5DDF8C78}
 		{2CC783FA-4BC5-466D-A70F-B985F818B0C8} = {699D7192-7457-47C5-9CF9-63CD5DDF8C78}
+		{972925DF-9787-493A-9F97-4A39BB48E3AE} = {699D7192-7457-47C5-9CF9-63CD5DDF8C78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CD794D6-4F48-40DA-A14C-40A1C335F885}
