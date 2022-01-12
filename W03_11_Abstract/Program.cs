@@ -16,6 +16,12 @@ namespace W03_11_Abstract
             customer.RegistrationDate = DateTime.Now;
             customer.test();
 
+            Console.WriteLine("\nFor Customer c = new Customer();    :");
+            Customer c = new Customer();
+
+            Console.WriteLine("\nFor Customer c = new Customer(5);    :");
+            Customer c2 = new Customer(5);
+
             Console.ReadKey();
         }
     }

@@ -14,5 +14,14 @@ namespace W03_11_Abstract
         {
             throw new NotImplementedException();
         }
+
+        public Customer()
+        {
+            Console.WriteLine("Customer constructor.");
+        }
+        public Customer(int i):base(i)
+        {
+            Console.WriteLine("Customer constructor with parameter");
+        }
     }
 }

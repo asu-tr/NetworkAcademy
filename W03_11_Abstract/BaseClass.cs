@@ -16,5 +16,15 @@ namespace W03_11_Abstract
         }
 
         public abstract void TestAbstract();
+
+        public BaseClass()
+        {
+            Console.WriteLine("BaseClass constructor");
+        }
+
+        public BaseClass(int i)
+        {
+            Console.WriteLine("BaseClass constructor with parameter.");
+        }
     }
 }
