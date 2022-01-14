@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace W03_19_LoginPage
 {
@@ -11,5 +7,7 @@ namespace W03_19_LoginPage
         public int ID;
         public string Username;
         public string Password;
+        public string FirstName;
+        public string LastName;
     }
 }

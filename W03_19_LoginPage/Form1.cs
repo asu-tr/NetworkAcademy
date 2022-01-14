@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace W03_19_LoginPage
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -22,14 +16,44 @@ namespace W03_19_LoginPage
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
 
-            User u = VirtualDB.users.Find(u => u.Username == username && u.Password == password);
+            User user = VirtualDB.users.Find(u => u.Username == username && u.Password == password);
 
-            if (u != null)
+            if (user != null)
             {
-                UserForm uf = new UserForm();
+                UserForm uf = new UserForm(user);
                 uf.Show();
+                //uf.ShowDialog();
                 this.Hide();
             }
+
+            else
+                MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void textBoxUsername_Enter(object sender, EventArgs e)
+        {
+            textBoxUsername.BackColor = GetColor();
+        }
+
+        private void textBoxUsername_Leave(object sender, EventArgs e)
+        {
+            textBoxUsername.BackColor = Color.White;
+        }
+
+        private void textBoxPassword_Enter(object sender, EventArgs e)
+        {
+            textBoxPassword.BackColor = GetColor();
+        }
+
+        private System.Drawing.Color GetColor()
+        {
+            Random random = new Random();
+            return Color.FromArgb((byte)random.Next(0, 255), (byte)random.Next(0, 255), (byte)random.Next(0, 255));
+        }
+
+        private void textBoxPassword_Leave(object sender, EventArgs e)
+        {
+            textBoxPassword.BackColor = Color.White;
         }
     }
 }
