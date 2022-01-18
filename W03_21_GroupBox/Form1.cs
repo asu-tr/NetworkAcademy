@@ -45,5 +45,16 @@ namespace W03_21_GroupBox
                 }
             }
         }
+
+        private void buttonPreview_Click(object sender, EventArgs e)
+        {
+            string firstname = textBoxFirstname.Text;
+            string lastname = textBoxLastname.Text;
+            string phone = textBoxPhone.Text;
+            string email = textBoxEmail.Text;
+
+            Form2 form2 = new Form2(firstname, lastname, phone, email);
+            form2.ShowDialog();
+        }
     }
 }

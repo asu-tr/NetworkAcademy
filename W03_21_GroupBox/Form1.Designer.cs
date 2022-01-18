@@ -40,12 +40,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxList = new System.Windows.Forms.GroupBox();
             this.listBoxCustomer = new System.Windows.Forms.ListBox();
+            this.buttonPreview = new System.Windows.Forms.Button();
             this.groupBoxAdd.SuspendLayout();
             this.groupBoxList.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxAdd
             // 
+            this.groupBoxAdd.Controls.Add(this.buttonPreview);
             this.groupBoxAdd.Controls.Add(this.buttonAdd);
             this.groupBoxAdd.Controls.Add(this.textBoxEmail);
             this.groupBoxAdd.Controls.Add(this.textBoxPhone);
@@ -66,7 +68,7 @@
             // 
             this.buttonAdd.Location = new System.Drawing.Point(10, 183);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(221, 49);
+            this.buttonAdd.Size = new System.Drawing.Size(103, 49);
             this.buttonAdd.TabIndex = 5;
             this.buttonAdd.Text = "ADD";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -155,6 +157,16 @@
             this.listBoxCustomer.Size = new System.Drawing.Size(236, 228);
             this.listBoxCustomer.TabIndex = 0;
             // 
+            // buttonPreview
+            // 
+            this.buttonPreview.Location = new System.Drawing.Point(119, 183);
+            this.buttonPreview.Name = "buttonPreview";
+            this.buttonPreview.Size = new System.Drawing.Size(112, 49);
+            this.buttonPreview.TabIndex = 5;
+            this.buttonPreview.Text = "PREVIEW";
+            this.buttonPreview.UseVisualStyleBackColor = true;
+            this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -185,6 +197,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxCustomer;
+        private System.Windows.Forms.Button buttonPreview;
     }
 }
 
