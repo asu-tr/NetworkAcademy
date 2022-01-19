@@ -20,34 +20,48 @@ namespace W04_01_Minesweeper
 
         int highscore = 0;
         int curr_score = 0;
+        string level = "";
+
+        List<List<Button>> list = new List<List<Button>>();
 
         private void buttonEasy_Click(object sender, EventArgs e)
         {
+            level = "easy";
             curr_score = 0;
             labelCurrValue.Text = curr_score.ToString();
 
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.Size = new Size(220, 250);
-            for (int i = 0; i < 16; i++)
+
+            list = new List<List<Button>>();
+
+            for (int i = 0; i < 4; i++)
             {
-                Button btn = new Button();
-                btn.Name = "btn" + i;
-                btn.Size = new Size(40, 40);
-                btn.Text = (i+1).ToString();
-                btn.UseVisualStyleBackColor = true;
+                List<Button> tmp = new List<Button>();
+                for (int j = 0; j < 4; j++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn" + i.ToString() +j.ToString();
+                    btn.Size = new Size(40, 40);
+                    btn.UseVisualStyleBackColor = true;
+                    btn.ForeColor = Color.AntiqueWhite;
 
-                if (Mine(60))
-                    btn.Tag = true;
-                else
-                    btn.Tag = false;
+                    if (Mine(60))
+                        btn.Tag = true;
+                    else
+                        btn.Tag = false;
 
-                flowLayoutPanel1.Controls.Add(btn);
-                btn.Click += btn_Click;
+                    flowLayoutPanel1.Controls.Add(btn);
+                    btn.Click += btn_Click;
+                    tmp.Add(btn);
+                }
+                list.Add(tmp);
             }
         }
 
         private void buttonNormal_Click(object sender, EventArgs e)
         {
+            level = "normal";
             curr_score = 0;
             labelCurrValue.Text = curr_score.ToString();
 
@@ -73,6 +87,7 @@ namespace W04_01_Minesweeper
 
         private void buttonHard_Click(object sender, EventArgs e)
         {
+            level = "hard";
             curr_score = 0;
             labelCurrValue.Text = curr_score.ToString();
 
@@ -118,6 +133,43 @@ namespace W04_01_Minesweeper
             }
             else
             {
+                int row = Convert.ToInt32(pressed.Name.Substring(3, 1));
+                int col = Convert.ToInt32(pressed.Name.Substring(4, 1));
+
+                switch (level)
+                {
+                    case "easy":
+                        int mineCount = 0;
+
+                        for (int i = row-1; i < row+2; i++)
+                        {
+                            for (int j = col-1; j < col+2; j++)
+                            {
+                                if (i >= 0 && j >= 0 && i <= 3 && j <= 3)
+                                {
+                                    Button b = (Button)list[i][j];
+                                    bool ismine2 = (bool)b.Tag;
+
+                                    if (ismine2)
+                                    {
+                                        mineCount++;
+                                    }
+                                }
+                            }
+                        }
+
+                        pressed.Text = mineCount.ToString();
+
+                        break;
+
+                    case "normal":
+
+                    case "hard":
+                    default:
+                        break;
+                }
+
+
                 pressed.BackColor = Color.DarkSlateBlue;
                 curr_score++;
                 labelCurrValue.Text = curr_score.ToString();
