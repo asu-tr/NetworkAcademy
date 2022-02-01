@@ -20,6 +20,9 @@ namespace W04_01_Minesweeper
 
         int highscore = 0;
         int curr_score = 0;
+        int rowcol = 0;
+        int mineCount = 0;
+        int mine = 0;
         string level = "";
 
         List<List<Button>> list = new List<List<Button>>();
@@ -28,6 +31,8 @@ namespace W04_01_Minesweeper
         {
             level = "easy";
             curr_score = 0;
+            rowcol = 4;
+            mineCount = 0;
             labelCurrValue.Text = curr_score.ToString();
 
             flowLayoutPanel1.Controls.Clear();
@@ -35,10 +40,10 @@ namespace W04_01_Minesweeper
 
             list = new List<List<Button>>();
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < rowcol; i++)
             {
                 List<Button> tmp = new List<Button>();
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < rowcol; j++)
                 {
                     Button btn = new Button();
                     btn.Name = "btn" + i.ToString() +j.ToString();
@@ -46,10 +51,10 @@ namespace W04_01_Minesweeper
                     btn.UseVisualStyleBackColor = true;
                     btn.ForeColor = Color.AntiqueWhite;
 
-                    if (Mine(60))
-                        btn.Tag = true;
-                    else
-                        btn.Tag = false;
+                    btn.Tag = Mine(60);
+
+                    if ((bool)btn.Tag)
+                        mineCount++;
 
                     flowLayoutPanel1.Controls.Add(btn);
                     btn.Click += btn_Click;
@@ -57,58 +62,83 @@ namespace W04_01_Minesweeper
                 }
                 list.Add(tmp);
             }
+            labelMCValue.Text = mineCount.ToString();
         }
 
         private void buttonNormal_Click(object sender, EventArgs e)
         {
             level = "normal";
             curr_score = 0;
+            rowcol = 5;
+            mineCount = 0;
             labelCurrValue.Text = curr_score.ToString();
 
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.Size = new Size(260, 260);
-            for (int i = 0; i < 25; i++)
+
+            list = new List<List<Button>>();
+
+            for (int i = 0; i < rowcol; i++)
             {
-                Button btn = new Button();
-                btn.Name = "btn" + i;
-                btn.Size = new Size(40, 40);
-                btn.Text = (i + 1).ToString();
-                btn.UseVisualStyleBackColor = true;
-                btn.Click += btn_Click;
+                List<Button> tmp = new List<Button>();
+                for (int j = 0; j < rowcol; j++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn" + i.ToString() + j.ToString();
+                    btn.Size = new Size(40, 40);
+                    btn.UseVisualStyleBackColor = true;
+                    btn.ForeColor = Color.AntiqueWhite;
 
-                if (Mine(50))
-                    btn.Tag = true;
-                else
-                    btn.Tag = false;
+                    btn.Tag = Mine(50);
 
-                flowLayoutPanel1.Controls.Add(btn);
+                    if ((bool)btn.Tag)
+                        mineCount++;
+
+                    flowLayoutPanel1.Controls.Add(btn);
+                    btn.Click += btn_Click;
+                    tmp.Add(btn);
+                }
+                list.Add(tmp);
             }
+
+            labelMCValue.Text = mineCount.ToString();
         }
 
         private void buttonHard_Click(object sender, EventArgs e)
         {
             level = "hard";
             curr_score = 0;
+            rowcol = 7;
             labelCurrValue.Text = curr_score.ToString();
 
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.Size = new Size(340, 340);
-            for (int i = 0; i < 49; i++)
+
+            list = new List<List<Button>>();
+
+            for (int i = 0; i < rowcol; i++)
             {
-                Button btn = new Button();
-                btn.Name = "btn" + i;
-                btn.Size = new Size(40, 40);
-                btn.Text = (i + 1).ToString();
-                btn.UseVisualStyleBackColor = true;
-                btn.Click += btn_Click;
+                List<Button> tmp = new List<Button>();
+                for (int j = 0; j < rowcol; j++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn" + i.ToString() + j.ToString();
+                    btn.Size = new Size(40, 40);
+                    btn.UseVisualStyleBackColor = true;
+                    btn.ForeColor = Color.AntiqueWhite;
 
-                if (Mine(40))
-                    btn.Tag = true;
-                else
-                    btn.Tag = false;
+                    btn.Tag = Mine(40);
 
-                flowLayoutPanel1.Controls.Add(btn);
+                    if ((bool)btn.Tag)
+                        mineCount++;
+
+                    flowLayoutPanel1.Controls.Add(btn);
+                    btn.Click += btn_Click;
+                    tmp.Add(btn);
+                }
+                list.Add(tmp);
             }
+            labelMCValue.Text = mineCount.ToString();
         }
 
         private void btn_Click(object sender, EventArgs e)
@@ -139,7 +169,7 @@ namespace W04_01_Minesweeper
                 switch (level)
                 {
                     case "easy":
-                        int mineCount = 0;
+                        mine = 0;
 
                         for (int i = row-1; i < row+2; i++)
                         {
@@ -152,27 +182,80 @@ namespace W04_01_Minesweeper
 
                                     if (ismine2)
                                     {
-                                        mineCount++;
+                                        mine++;
                                     }
                                 }
                             }
                         }
-
-                        pressed.Text = mineCount.ToString();
-
+                        pressed.Text = mine.ToString();
                         break;
 
                     case "normal":
+                        mine = 0;
+
+                        for (int i = row - 1; i < row + 2; i++)
+                        {
+                            for (int j = col - 1; j < col + 2; j++)
+                            {
+                                if (i >= 0 && j >= 0 && i <= 4 && j <= 4)
+                                {
+                                    Button b = (Button)list[i][j];
+                                    bool ismine2 = (bool)b.Tag;
+
+                                    if (ismine2)
+                                    {
+                                        mine++;
+                                    }
+                                }
+                            }
+                        }
+                        pressed.Text = mine.ToString();
+                        break;
 
                     case "hard":
+                        mine = 0;
+
+                        for (int i = row - 1; i < row + 2; i++)
+                        {
+                            for (int j = col - 1; j < col + 2; j++)
+                            {
+                                if (i >= 0 && j >= 0 && i <= 6 && j <= 6)
+                                {
+                                    Button b = (Button)list[i][j];
+                                    bool ismine2 = (bool)b.Tag;
+
+                                    if (ismine2)
+                                    {
+                                        mine++;
+                                    }
+                                }
+                            }
+                        }
+                        pressed.Text = mine.ToString();
+                        break;
                     default:
                         break;
                 }
 
-
                 pressed.BackColor = Color.DarkSlateBlue;
                 curr_score++;
                 labelCurrValue.Text = curr_score.ToString();
+
+                int btnMine = 0;
+
+                foreach (List<Button> btnlist in list)
+                {
+                    foreach (Button button in btnlist)
+                    {
+                        if (button.Text == "")
+                            btnMine++;
+                    }
+                }
+
+                if (btnMine == mineCount)
+                {
+                    MessageBox.Show("Congrats! You finished the game.");
+                }
             }
         }
 

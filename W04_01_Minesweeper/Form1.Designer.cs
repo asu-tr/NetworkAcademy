@@ -37,6 +37,8 @@
             this.labelHSValue = new System.Windows.Forms.Label();
             this.labelCurr = new System.Windows.Forms.Label();
             this.labelCurrValue = new System.Windows.Forms.Label();
+            this.labelMC = new System.Windows.Forms.Label();
+            this.labelMCValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonEasy
@@ -79,7 +81,7 @@
             // labelHS
             // 
             this.labelHS.AutoSize = true;
-            this.labelHS.Location = new System.Drawing.Point(378, 18);
+            this.labelHS.Location = new System.Drawing.Point(378, 9);
             this.labelHS.Name = "labelHS";
             this.labelHS.Size = new System.Drawing.Size(95, 16);
             this.labelHS.TabIndex = 2;
@@ -88,7 +90,7 @@
             // labelHSValue
             // 
             this.labelHSValue.AutoSize = true;
-            this.labelHSValue.Location = new System.Drawing.Point(475, 18);
+            this.labelHSValue.Location = new System.Drawing.Point(475, 9);
             this.labelHSValue.Name = "labelHSValue";
             this.labelHSValue.Size = new System.Drawing.Size(14, 16);
             this.labelHSValue.TabIndex = 3;
@@ -97,7 +99,7 @@
             // labelCurr
             // 
             this.labelCurr.AutoSize = true;
-            this.labelCurr.Location = new System.Drawing.Point(378, 41);
+            this.labelCurr.Location = new System.Drawing.Point(378, 28);
             this.labelCurr.Name = "labelCurr";
             this.labelCurr.Size = new System.Drawing.Size(91, 16);
             this.labelCurr.TabIndex = 2;
@@ -106,19 +108,39 @@
             // labelCurrValue
             // 
             this.labelCurrValue.AutoSize = true;
-            this.labelCurrValue.Location = new System.Drawing.Point(475, 41);
+            this.labelCurrValue.Location = new System.Drawing.Point(475, 28);
             this.labelCurrValue.Name = "labelCurrValue";
             this.labelCurrValue.Size = new System.Drawing.Size(14, 16);
             this.labelCurrValue.TabIndex = 3;
             this.labelCurrValue.Text = "0";
+            // 
+            // labelMC
+            // 
+            this.labelMC.AutoSize = true;
+            this.labelMC.Location = new System.Drawing.Point(378, 47);
+            this.labelMC.Name = "labelMC";
+            this.labelMC.Size = new System.Drawing.Size(76, 16);
+            this.labelMC.TabIndex = 2;
+            this.labelMC.Text = "Mine Count:";
+            // 
+            // labelMCValue
+            // 
+            this.labelMCValue.AutoSize = true;
+            this.labelMCValue.Location = new System.Drawing.Point(475, 47);
+            this.labelMCValue.Name = "labelMCValue";
+            this.labelMCValue.Size = new System.Drawing.Size(14, 16);
+            this.labelMCValue.TabIndex = 3;
+            this.labelMCValue.Text = "0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 513);
+            this.Controls.Add(this.labelMCValue);
             this.Controls.Add(this.labelCurrValue);
             this.Controls.Add(this.labelHSValue);
+            this.Controls.Add(this.labelMC);
             this.Controls.Add(this.labelCurr);
             this.Controls.Add(this.labelHS);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -143,6 +165,8 @@
         private System.Windows.Forms.Label labelHSValue;
         private System.Windows.Forms.Label labelCurr;
         private System.Windows.Forms.Label labelCurrValue;
+        private System.Windows.Forms.Label labelMC;
+        private System.Windows.Forms.Label labelMCValue;
     }
 }
 
