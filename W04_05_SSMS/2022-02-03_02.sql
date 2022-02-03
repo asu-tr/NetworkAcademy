@@ -2,56 +2,56 @@ USE Northwind
 
 GO
 
---CREATE PROC SendMoney
---@senderid int
---, @receiverid int
---, @amount money
---AS
---SET XACT_ABORT ON
---BEGIN TRY
---  BEGIN TRAN EFT
---    UPDATE Accounts SET Balance -= @amount WHERE ID = @senderid
---    UPDATE Accounts SET Balance += @amount WHERE ID = @receiverid
---  COMMIT TRAN EFT
---END TRY
---BEGIN CATCH
---  ROLLBACK TRAN
---  PRINT 'AN ERROR OCCURED'
---END CATCH
+CREATE PROC SendMoney
+@senderid int
+, @receiverid int
+, @amount money
+AS
+SET XACT_ABORT ON
+BEGIN TRY
+  BEGIN TRAN EFT
+    UPDATE Accounts SET Balance -= @amount WHERE ID = @senderid
+    UPDATE Accounts SET Balance += @amount WHERE ID = @receiverid
+  COMMIT TRAN EFT
+END TRY
+BEGIN CATCH
+  ROLLBACK TRAN
+  PRINT 'AN ERROR OCCURED'
+END CATCH
 
---GO
+GO
 
---SELECT * FROM ACCOUNTS
+SELECT * FROM ACCOUNTS
 
---EXEC SendMoney 2, 4, 100
+EXEC SendMoney 2, 4, 100
 
---SELECT * FROM ACCOUNTS
+SELECT * FROM ACCOUNTS
 
----- SELECT @@TRANCOUNT -- OPEN TRANSACTION COUNT
-
-
---SELECT CompanyName
---, CASE Country
---  WHEN 'Japan' THEN 'JP'
---  WHEN 'Spain' THEN 'SP'
---  WHEN 'Germany' THEN 'DE'
---  WHEN 'Netherlands' THEN 'NL'
---  ELSE Country
---  END AS [Country Code]
---FROM Suppliers
+-- SELECT @@TRANCOUNT -- OPEN TRANSACTION COUNT
 
 
---DECLARE @name nvarchar(20) = 'Ashley'
---DECLARE @count int = 0
+SELECT CompanyName
+, CASE Country
+  WHEN 'Japan' THEN 'JP'
+  WHEN 'Spain' THEN 'SP'
+  WHEN 'Germany' THEN 'DE'
+  WHEN 'Netherlands' THEN 'NL'
+  ELSE Country
+  END AS [Country Code]
+FROM Suppliers
 
---WHILE @count < LEN(@name)
---BEGIN
---  PRINT @name
---  SET @count += 1
---END
+
+DECLARE @name nvarchar(20) = 'Ashley'
+DECLARE @count int = 0
+
+WHILE @count < LEN(@name)
+BEGIN
+  PRINT @name
+  SET @count += 1
+END
 
 
---SELECT COUNT(*) FROM Suppliers
+SELECT COUNT(*) FROM Suppliers
 
 GO
 
