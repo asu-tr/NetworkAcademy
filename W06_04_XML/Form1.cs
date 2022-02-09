@@ -63,7 +63,7 @@ namespace W06_04_XML
             for (int i = 0; i < 51; i++)
             {
                 Student student = new Student();
-                student.Id = i;
+                student.Id = i+1;
                 student.Name = FakeData.NameData.GetFullName();
                 student.Address = FakeData.PlaceData.GetAddress();
 
@@ -109,8 +109,13 @@ namespace W06_04_XML
 
             students = xDoc.Descendants("Student").ToList();
 
-            listBox2.DataSource = null;
-            listBox2.DataSource = students;
+            //listBox2.DataSource = null;
+            //listBox2.DataSource = students;
+
+            foreach (var item in students)
+            {
+                listBox2.Items.Add(item.Element("ID").Value + " - " + item.Element("Name").Value + " - " + item.Element("Address").Value);
+            }
         }
     }
 }
