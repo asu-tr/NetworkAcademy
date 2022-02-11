@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -20,6 +21,7 @@ namespace W06_09_ADONET
 
         SqlConnection conn = new SqlConnection("Server=.;Database=Northwind; Integrated Security=true;");
 
+        SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
         private void FormProduct_Load(object sender, EventArgs e)
         {
             RefreshProductTable();
