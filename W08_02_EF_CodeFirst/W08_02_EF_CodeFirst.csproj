@@ -77,11 +77,16 @@
     <Compile Include="Migrations\202202240847104_rename_lecture_name_lecturename.designer.cs">
       <DependentUpon>202202240847104_rename_lecture_name_lecturename.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202250600205_add-migration add_class_sinif.cs" />
+    <Compile Include="Migrations\202202250600205_add-migration add_class_sinif.designer.cs">
+      <DependentUpon>202202250600205_add-migration add_class_sinif.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Parent.cs" />
     <Compile Include="SchoolDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sinif.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Teacher.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -95,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202240847104_rename_lecture_name_lecturename.resx">
       <DependentUpon>202202240847104_rename_lecture_name_lecturename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202250600205_add-migration add_class_sinif.resx">
+      <DependentUpon>202202250600205_add-migration add_class_sinif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

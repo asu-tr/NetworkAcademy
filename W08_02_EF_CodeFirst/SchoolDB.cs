@@ -20,6 +20,7 @@ namespace W08_02_EF_CodeFirst
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<Lecture> Lectures { get; set; }
         public virtual DbSet<Parent> Parents { get; set; }
+        public virtual DbSet<Sinif> Sinifs { get; set; }
     }
 
     //public class MyEntity
