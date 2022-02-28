@@ -1,0 +1,61 @@
+﻿@using W09_01_MVC.Library
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    <div>
+        <style>
+            .color {
+                color: red
+            }
+
+            div#text1 {
+            }
+
+            p.color {
+                font: 25px;
+            }
+
+            div {
+                background-color: rebeccapurple;
+                font-family: 'Comic Sans MS';
+            }
+
+            p {
+                background-color: cadetblue;
+                color: sandybrown;
+                text-align: center;
+            }
+        </style>
+        <asp Button Text="Click" />
+        <input type="text" name="text1" id="text1" />
+        <input type="button" value="Click" />
+        <a href="https://www.google.com">Google</a>
+        <a href="Index2">Index2</a>
+
+        <p class="color"> p color class</p>
+
+        @Html.ActionLink("Category Page", "Category")
+        <br />
+        @Html.TextBox("text2", "Your Name:")
+        <br />
+        @Html.TextArea("text3", "This is a textarea")
+        <br />
+        @Html.ActionLink("Index Page", "Index", new { name = "Mary" }, new { title = "Redirecting to Index Page", @class = "red" })
+
+        @Html.Button("button3", ButtonType.button, "Button Text")
+
+        <img src="~/Images/asdafasd.jpg"  alt="Alternate Text"/>
+
+    </div>
+</body>
+</html>
