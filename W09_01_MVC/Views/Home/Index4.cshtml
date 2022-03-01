@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index4";
+}
+
+<h2>Index4</h2>
+
+
+
+<a href="Index3">To Index 3</a>
+
+<hr />
+
+@Html.ActionLink("To Index 3", "Index3", "Home")
+
+<br />
+
+<a href=@Url.Action("Index3", "Home")> To Index 3 </a>
+
+<br />
+
+@Url.Content("~/Home/Index3")
+
+@Url.Encode("~/Home/Index3?search=something and something")
+
+<br />
+
+
+<hr />
+
+
+@HttpUtility.HtmlEncode("<b> SOMETHING </b>")
+
+<br />
+
+@HttpUtility.HtmlDecode("&lt;b&gt; SOMETHING &lt;/b&gt;")
+
+<br />
+
+@Html.Raw("<b> SOMETHING </b>")
+
+<br />
+
+@Html.Raw("<script> alert('helloooo')</script>")
+@Html.Raw("<style> h2{color: navy}</style>")

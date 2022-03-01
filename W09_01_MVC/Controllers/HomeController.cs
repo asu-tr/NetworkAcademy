@@ -30,5 +30,9 @@ namespace W09_01_MVC.Controllers
         {
             return View();
         }
+        public ActionResult Index4()
+        {
+            return View();
+        }
     }
 }

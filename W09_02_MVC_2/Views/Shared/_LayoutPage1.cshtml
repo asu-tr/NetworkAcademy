@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .box{
+            display: block;
+            margin: 10px;
+            border: 2px dotted gray;
+        }
+
+        #menu ul li{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid red;
+            background-color: aqua;
+            vertical-align: middle;
+            line-height 50px;
+            margin: 5px;
+        }
+
+        #menu a{
+            font-size: medium;
+            color: green;
+            text-decoration-style: solid;
+        }
+
+        #menu li:hover{
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="menu">
+        <ul>
+            <li>@Html.ActionLink("Home", "HomePage")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact")</li>
+        </ul>
+    </div>
+    <div class="box">
+        @RenderBody()
+    </div>
+    <div class="box">
+        @*footer*@
+    </div>
+</body>
+</html>
