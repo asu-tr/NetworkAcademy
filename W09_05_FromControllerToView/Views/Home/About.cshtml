@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+</head>
+<body>
+    <div>
+        <h2>About</h2>
+    </div>
+    <div>
+        <b>Viewbag: @ViewBag.text1</b>
+        <b>Viewbag: @ViewBag.text2</b>
+        <br />
+
+        @Html.DisplayText("name")<br />
+        @Html.Hidden("name")<br />
+        @Html.Value("name")<br />
+        @Html.DropDownList("liste")<br />
+    </div>
+
+    <div>
+        @Html.ActionLink("Contact Page", "Contact")
+    </div>
+</body>
+</html>

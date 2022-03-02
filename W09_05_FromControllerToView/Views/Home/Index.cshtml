@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>HOME PAGE</h2>
+    </div>
+    <div>
+        <b> TEXT 1 IS: </b> @ViewData["text1"]
+        <br />
+
+        <b>check value is @ViewData["check"]</b>
+        <br />
+
+        <b>Viewbag: @ViewBag.text1</b>
+        <b>Viewbag: @ViewBag.text2</b>
+        <br />
+
+        <b> Tempdata t3: @TempData["Text3"]</b>
+        <b>Tempdata c2: @TempData["Check2"]</b>
+    </div>
+</body>
+</html>
