@@ -1,0 +1,39 @@
+﻿@using   W09_07_ModelBinding.Models
+
+@model ViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>INDEX</h1>
+    </div>
+    <div>
+        <b>Name: </b> @Model.Person.Name
+        <br /><b>Age: </b> @Model.Person.Age
+        <br /><b>City: </b> @Model.Address.City
+        <br /><b>Country: </b> @Model.Address.Country
+        <br />
+    </div>
+
+    <div>
+        @using (Html.BeginForm())
+            {
+                <b>Name:</b>@Html.TextBoxFor(x => x.Person.Name)<br />
+                <b>Age:</b>@Html.TextBoxFor(x => x.Person.Age)<br />
+                <hr />
+                <input type="submit"  value="SEND" />
+            }
+
+    </div>
+</body>
+</html>
