@@ -1,0 +1,50 @@
+﻿@using W09_10_EFCodeFirst.Models
+@model List<Person>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class=container>
+
+        <div class="row">
+            <h2 class="text-danger">People and Addresses</h2>
+        </div>
+
+        @foreach (Person p in Model)
+        {
+            <div class="row table-bordered">
+
+                <div class="col-md-3">
+                    <p class="text-warning">
+                        <span class="glyphicon glyphicon-user"></span>
+                        @p.Name, @p.Age
+                    </p>
+                </div>
+
+                <div class="col-md-9">
+                    @foreach (Address a in p.AddressList)
+                    {
+                        <p class="text-info">
+                            <span class="glyphicon glyphicon-home"></span>
+                            @a.Description
+                        </p>
+                    }
+                </div>
+
+            </div>
+        }
+
+    </div>
+</body>
+</html>
