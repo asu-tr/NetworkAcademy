@@ -18,8 +18,19 @@
     <div class=container>
 
         <div class="row">
-            <h2 class="text-danger">People and Addresses</h2>
+            <div class="col-md-6">
+                <h2 class="text-danger">People and Addresses</h2>
+            </div>
+            <div class="col-md-3">
+                <br />
+                @Html.ActionLink("New Person", "NewPerson", "Person", null, new { @class = "btn btn-primary" })
+            </div>
+            <div class="col-md-3">
+                <br />
+                @Html.ActionLink("New Address", "NewAddress", "Address", null, new { @class = "btn btn-primary" })
+            </div>
         </div>
+
 
         @foreach (Person p in Model)
         {
@@ -27,6 +38,8 @@
 
                 <div class="col-md-3">
                     <p class="text-warning">
+                        @Html.ActionLink("Edit", "Edit", "Person", new { personId = p.Id }, new { @class = "btn btn-warning btn-sm" })
+                        @Html.ActionLink("Delete", "Delete", "Person", new { personId = p.Id }, new { @class = "btn btn-danger btn-sm" })
                         <span class="glyphicon glyphicon-user"></span>
                         @p.Name, @p.Age
                     </p>
@@ -35,10 +48,12 @@
                 <div class="col-md-9">
                     @foreach (Address a in p.AddressList)
                     {
-                        <p class="text-info">
-                            <span class="glyphicon glyphicon-home"></span>
-                            @a.Description
-                        </p>
+                    <p class="text-info">
+                        @Html.ActionLink("Edit", "Edit", "Address", new { addressId = a.Id }, new { @class = "btn btn-warning btn-xs" })
+                        @Html.ActionLink("Delete", "Delete", "Address", new { addressId = a.Id }, new { @class = "btn btn-danger btn-xs" })
+                        <span class="glyphicon glyphicon-home"></span>
+                        @a.Description
+                    </p>
                     }
                 </div>
 
