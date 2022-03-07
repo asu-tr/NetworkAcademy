@@ -1,0 +1,51 @@
+﻿@using W09_10_EFCodeFirst.Models
+@model Address
+
+@{
+    ViewBag.Title = "New Address";
+}
+<style>
+    .input-group-addon {
+        min-width: 65px;
+        text-align: left;
+    }
+
+    .input-group{
+        min-height: 20px;
+        text-align: left;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>New Address</h2>
+    </div>
+    <div class="col-md-4">
+        BUTTON TO HOME
+    </div>
+</div>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+
+<div class="input-group">
+    <span class="input-group-addon">Person</span>
+    @Html.DropDownListFor(x => x.Person.Id, (List<SelectListItem>)ViewBag.people, new {@class = "form-control"})
+</div>
+
+    <div class="input-group">
+        <span class="input-group-addon">Address:  </span>
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "New Address" })
+    </div>
+    <br />
+
+    <div class="input-group">
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+
+    <div class="input-group">
+        @ViewBag.Message
+    </div>
+}

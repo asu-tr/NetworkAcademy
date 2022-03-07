@@ -1,0 +1,64 @@
+﻿@using W09_10_EFCodeFirst.Models
+@model Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete Person</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class=" container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Delete Person</h2>
+            </div>
+            <div class="col-md-4">
+                <br />
+                @Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+
+                <div class="col-md-3"></div>
+
+                <div class="col-md-3">
+                    <div class="row table-bordered text-center">Name</div>
+                    <div class="row table-bordered text-center">Age</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row table-bordered text-center">@Model.Name</div>
+                    <div class="row table-bordered text-center">@Model.Age</div>
+                </div>
+
+                <div class="col-md-3"></div>
+
+            </div>
+
+            <br />
+            <br />
+
+            <div class="row text-center">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+        }
+
+    </div>
+
+</body>
+</html>

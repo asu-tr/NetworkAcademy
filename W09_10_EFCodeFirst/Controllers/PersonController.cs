@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using W09_10_EFCodeFirst.Models;
 
@@ -20,6 +17,7 @@ namespace W09_10_EFCodeFirst.Controllers
         {
             AddressDB db = new AddressDB();
             db.People.Add(p);
+
             int result = db.SaveChanges();
 
             if (result > 0)
@@ -58,6 +56,39 @@ namespace W09_10_EFCodeFirst.Controllers
                 ViewBag.Message = "An error occured.";
 
             return View(p);
+        }
+
+        #endregion
+
+        #region DeletePerson
+
+        public ActionResult Delete(int? personId)
+        {
+            AddressDB db = new AddressDB();
+            Person p = db.People.Where(x => x.Id == personId).First();
+
+            return View(p);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeletePerson(int? personId)
+        {
+            AddressDB db = new AddressDB();
+            Person p = new Person();
+
+            if (personId != null)
+            {
+                p = db.People.Where(x => x.Id == personId).First();
+
+                foreach (Address a in p.AddressList.ToList())
+                {
+                    db.Addresses.Remove(a);
+                }
+                db.People.Remove(p);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         #endregion

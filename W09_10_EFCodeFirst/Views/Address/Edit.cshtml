@@ -1,0 +1,52 @@
+﻿@using W09_10_EFCodeFirst.Models
+@model Address
+
+@{
+    ViewBag.Title = "New Address";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Edit Address</h2>
+    </div>
+    <div class="col-md-4">
+        @Html.ActionLink("Home", "Index", "Home", new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-addon">Person:  @Model.Person.Name</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <div class="col-md-4">
+                    <span class="input-group-addon">Address:  </span>
+                </div>
+                <div class="col-md-8">
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "New Address", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1 text-center">
+                <div class="input-group">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="input-group">
+    @ViewBag.Message
+</div>

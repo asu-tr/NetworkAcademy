@@ -141,6 +141,8 @@
     <Content Include="Views\Address\NewAddress.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Address\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
