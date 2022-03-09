@@ -11,16 +11,29 @@ namespace W10_01_AutoStoredProcedure.Controllers
     {
         public ActionResult Home()
         {
-            DBContext db = new DBContext();
-            db.Computers.ToList();
+            DBContext context = new DBContext();
+
+            List<Computer> list = context.Computers.ToList();
 
             Computer c = new Computer();
             c.Brand = "MSI";
-            c.GPU_ = "RTX3060";
+            c.GPU_ = "RTX3080";
 
-            db.Computers.Add(c);
+            context.Computers.Add(c);
 
-            return View();
+            context.SaveChanges();
+
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Home()
+        {
+            DBContext context = new DBContext;
+            context.Database.ExecuteSqlCommand("EXEC AddSomePC");
+
+            List<Computer> list = context.Computers.ToList();
+            return View(list);
         }
     }
 }
