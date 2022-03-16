@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    <div> 
+        @if (HttpContext.Current.Cache["city"] != null)
+        {
+            <p>Cache City is: @HttpContext.Current.Cache["city"].ToString()</p>
+        }
+        else
+        {
+            <p>Cache empty for City.</p>
+        }
+    </div>
+</body>
+</html>
