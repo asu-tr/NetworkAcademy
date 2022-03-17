@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<a class="btn btn-success">Upload Data</a>*@
+
+@Ajax.ActionLink("Upload Data",
+    "GetData",
+    null,
+    new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "list",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loading",
+        LoadingElementDuration = 2000
+    },
+    new {@class = "btn btn-success" })
+
+<hr />
+
+<div id="loading" class="alert alert-warning" style="display: none">
+    Loading...
+</div>
+
+<ul class="list-group" id="list">
+    
+</ul>
