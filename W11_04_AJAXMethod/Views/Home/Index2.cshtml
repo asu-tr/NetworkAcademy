@@ -1,0 +1,41 @@
+﻿@using W11_04_AJAXMethod.Models
+@model Model1
+@{
+    ViewBag.Title = "Index 2";
+}
+
+<h2>Index2</h2>
+
+@using (Ajax.BeginForm("Index2",
+    new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+        LoadingElementDuration = 500,
+        UpdateTargetId = "result",
+        InsertionMode = InsertionMode.InsertAfter
+    }))
+{
+    <div>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+}
+
+<br />
+<hr />
+<br />
+
+<ul class="list-group" id="result">
+    <li class="list-group-item-warning" id="loading" style="display: none">Loading...</li>
+
+    @if (ViewBag.List2 != null)
+    {
+        foreach (var item in ViewBag.List2)
+        {
+            <li id="@item.Id" class="list-group-item">@item.Name</li>
+        }
+    }
+</ul>
