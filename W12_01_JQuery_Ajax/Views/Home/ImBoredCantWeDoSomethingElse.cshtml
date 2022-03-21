@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "ImBoredCantWeDoSomethingElse";
+}
+
+<h2>I'm Bored, Can't We Do Something Else</h2>
+
+<br />
+
+<button type="button" id="btnGet" class="btn btn-success">
+    Get Data
+</button>
+
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-md-3">
+        <input id="txtData" class="form-control" placeholder="Enter data" />
+    </div>
+
+    <div class="col-md-3">
+        <button type="button" id="btnUploadGet" class="btn btn-outline-success">
+            Send &amp; Get Data
+        </button>
+    </div>
+
+    <div class="col-md-3">
+        <button type="button" id="btnJSON" class="btn btn-outline-success">
+            Send &amp; Get Data With JSON
+        </button>
+    </div>
+
+</div>
+
+<hr />
+
+<div id="loading" class="alert alert-warning" style="display: none">
+    LOADING...
+</div>
+
+<ul id="listUL" class="list-group">
+</ul>
+
+
+<script>
+    $(function () {
+        $("#btnGet")
+            .click(
+                function () {
+                    $.ajax({
+                        method: "GET",
+                        url: "/Home/GetData",
+                        beforeSend: function () {
+                            $("#listUL").empty();
+                            $("#loading").show(100);
+                        },
+                    })
+                        .done(
+                            function (s) {
+                                $("#listUL")
+                                    .html(s);
+                            }
+                        )
+                        .fail(
+                            function () {
+                                alert("ERROR");
+                            }
+                        )
+                        .always(
+                            function () {
+                                $("#loading").hide(100);
+                            }
+                        );
+                }
+            );
+    });
+
+    $(function () {
+        $("#btnUploadGet")
+            .click(
+                function () {
+                    var txData = $("#txtData").val();
+                    $.ajax({
+                        method: "GET",
+                        url: "/Home/GetData",
+                        data: {data: txData},
+                        beforeSend: function () {
+                            $("#listUL").empty();
+                            $("#loading").show(100);
+                        },
+                    })
+                        .done(
+                            function (s) {
+                                $("#listUL")
+                                    .html(s);
+                            }
+                        )
+                        .fail(
+                            function () {
+                                alert("ERROR");
+                            }
+                        )
+                        .always(
+                            function () {
+                                $("#loading").hide(100);
+                            }
+                        );
+                }
+            );
+    });
+
+
+
+
+
+    $(function () {
+        $("#btnJSON")
+            .click(
+                function () {
+                    var txData = $("#txtData").val();
+                    $.ajax({
+                        method: "GET",
+                        beforeSend: function () {
+                            $("#listUL").empty();
+                            $("#loading").show(300);
+                        },
+                        url: "/Home/GetData2",
+                        data: { data: txData },
+                    })
+                        .done(
+                            function (s) {
+                                //$("#listUL")
+                                //    .html(s);
+
+                                for (var i in s) {
+                                    var item = s[i];
+                                    var li = $("<li class='list-group-item'></li>");
+                                    li.html(item);
+
+                                    $("#listUL").append(li);
+                                }
+                            }
+                        )
+                        .fail(
+                            function () {
+                                alert("ERROR");
+                            }
+                        )
+                        .always(
+                            function () {
+                                $("#loading").hide(300);
+                            }
+                        );
+                }
+            );
+    });
+
+</script>

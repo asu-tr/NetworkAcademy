@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<h2>Index</h2>
+
+<br />
+
+<button type="button" id="btnGet" class="btn btn-success">
+    Get Data
+</button>
+
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-md-3">
+        <input id="txtData" class="form-control" placeholder="Enter data" />
+    </div>
+
+    <div class="col-md-3">
+        <button type="button" id="btnUploadGet" class="btn btn-outline-success">
+            Send &amp; Get Data
+        </button>
+    </div>
+
+</div>
+
+<hr />
+
+<div id="loading" class="alert alert-warning" style="display: none">
+    LOADING...
+</div>
+
+<ul id="listUL" class="list-group">
+</ul>
+
+<script>
+    $(function () {
+        $("#btnGet").click(
+            function () {
+                $("#loading").show(
+                    1000,
+                    function () {
+                        $.get("/Home/GetData",
+                            function (result) {
+                                $("#listUL").html(result);
+                                $("#loading").hide(1000);
+                            });
+                    });
+            })
+    });
+
+    $(function () {
+        $("#btnUploadGet").click(
+            function () {
+                $("#loading").show(
+                    1000,
+                    function () {
+
+                        var txData = $("#txtData").val();
+
+                        $.get(
+                            "/Home/GetData",
+                            { data: txData },
+                            function (result) {
+                                $("#listUL").html(result);
+                            }).fail(
+                                function () {
+                                    alert("ERROR")
+                                }).always(
+                                    function () {
+                                        $("#loading").hide(1000);
+                                    });
+                    });
+            });
+    });
+</script>

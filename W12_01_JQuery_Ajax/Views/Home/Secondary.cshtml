@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Secondary";
+}
+
+<h2>Secondary</h2>
+
+<button type="button" id="btnGet" class="btn btn-outline-success">
+    Get Data
+</button>
+
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-md-3">
+        <input id="txtData" class="form-control" placeholder="Enter data" />
+    </div>
+
+    <div class="col-md-3">
+        <button type="button" id="btnUploadGet" class="btn btn-outline-success">
+            Send &amp; Get Data
+        </button>
+    </div>
+
+</div>
+
+<hr />
+
+<div id="loading" class="alert alert-warning" style="display: none">
+    LOADING...
+</div>
+
+<ul id="listUL" class="list-group">
+</ul>
+
+
+<script>
+    $(function () {
+        $("#btnGet").click(
+            function () {
+                $("#loading").show(500);
+                $("#listUL").load(
+                    "/Home/GetData",
+                    function () {
+                        $("#loading").hide(500);
+                    });
+            })
+    });
+
+    $(function () {
+        $("#btnUploadGet").click(
+            function () {
+                $("#loading").show(500);
+                var txData = $("#txtData").val();
+                $("#listUL").load(
+                    "/Home/GetData",
+                    {data: txData},
+                    function () {
+                        $("#loading").hide(500);
+                    });
+            })
+    });
+</script>
