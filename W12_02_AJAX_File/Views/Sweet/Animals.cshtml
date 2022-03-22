@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Animals";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Upload File with AJAX</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            @*<form method="post" action="Sweet/Animals" enctype="multipart/form-data">
+        </form>*@
+
+
+            @using (Html.BeginForm("Animals", "Sweet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" id="inputFile" class="form-control" />
+                <input type="button" id="btnSendFile" value="Send File" class="form-control btn btn-outline-success" />
+            }
+            <script>
+        $("#btnSendFile")
+        .click(
+            function () {
+                var myFile = new FormData($("form").get(0));
+                //var myFile = new FormData($("#inputFile"));
+                //var myFile = new FormData(document.getElementById("inputFile"))
+
+                $.ajax({
+                    method: "POST",
+                    url: '@Url.Action("SendChocolate", "Sweet")',
+                    data: myFile,
+                    processData: false,
+                    contentType: false,
+                })
+                    .done(
+                        function (result) {
+                            alert(result.message)
+                        });
+            });
+            </script>
+        </div>
+    </div>
+
+</div>
+
+
